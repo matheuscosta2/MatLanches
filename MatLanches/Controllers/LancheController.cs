@@ -1,4 +1,5 @@
 ﻿using MatLanches.Repositories.Interfaces;
+using MatLanches.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MatLanches.Controllers
@@ -14,9 +15,16 @@ namespace MatLanches.Controllers
 
         public IActionResult List()
         {
+
+            //var lanches = _lancheRepository.Lanches;
+            //return View(lanches);
+
+            var lanchesListViewModel = new LancheListViewModel();
+            lanchesListViewModel.Lanches = _lancheRepository.Lanches;
+            lanchesListViewModel.CategoriaAtual = "Categoria Atual";
             
-            var lanches = _lancheRepository.Lanches;
-            return View(lanches);
+            return View(lanchesListViewModel);
+        
         }
     }
 }
