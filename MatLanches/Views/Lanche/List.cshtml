@@ -1,0 +1,17 @@
+﻿@model IEnumerable<MatLanches.Models.Lanche>
+
+    <div>
+        <h2>@ViewData["Titulo"]</h2>
+    </div>
+    <h2>@ViewData["Data"]</h2>
+
+    <h3>@TempData["Nome"]</h3>
+
+    @foreach(var lanche in Model)
+{
+    <div>
+        <h4>@lanche.Nome</h4>
+        <p>img srvc="@lanche.ImagemUrl"</p>
+        <h3>Preço : @lanche.Preco.ToString("c")</h3>
+    </div>
+}
